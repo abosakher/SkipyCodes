@@ -1,0 +1,46 @@
+#include <iostream>
+#include <math.h>
+#include <string>
+#include <cstdlib>
+#include <sstream>
+#include <algorithm>
+#include <vector>
+#include <set>
+#include <cstring>
+#include <map>
+#include <cstdio>
+#include <queue>
+#include <stdio.h>
+
+
+using namespace std;
+vector <int> v;
+int main()
+{
+    
+    int i=1;
+    string bin="0";
+    while(bin.length()<15){
+        bin=binario(i);
+        v.push_back(lucky4(bin));
+        v.push_back(lucky7(bin));
+        v.push_back(verylucky4(bin));
+        if(!purounos(bin))
+        v.push_back(verylucky4(bin));
+        i++;
+    }
+    int a,b,t,x,y;
+    cin>>t;
+    while(t--){
+        cin<<a<<b;
+        x=binarysearch(a);
+        y=binarysearch(b);
+        if(a-v[x]>0)
+            x++;
+        if(b-v[y]>0)
+            y++;
+        cout<<x-y+1<<endl;
+    }
+    return 0;
+    
+}
